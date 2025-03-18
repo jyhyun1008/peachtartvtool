@@ -44,9 +44,20 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 h1 {
   margin-block-start: 0;
   margin-block-end: 0;
+}
+
+hr {
+  margin: 20px;
+  height: 1px;
+  background-color: #ffffff22;
+  border:0;
 }
 
 span {
@@ -89,7 +100,7 @@ span {
   margin: calc(10dvh - 3rem) 0 calc(10dvh) 0;
 }
 
-.artistMenu > div {
+.artistMenu > * > div {
   width: 12dvh;
   aspect-ratio: 1;
   border-radius: 0 50% 50% 0;
@@ -109,4 +120,14 @@ span {
   margin-left: 30vw;
   padding: calc(3rem + 100px) 100 100 calc(100px + 5vw);
   background: var(--background);
+}
+
+.channel-link {
+  color: var(--foreground);
+  overflow: hidden;
+}
+
+.channel-link:hover > div {
+  background: #00000055 !important;
+  display: flex !important;
 }
