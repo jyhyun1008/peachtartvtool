@@ -64,6 +64,18 @@ span {
   color: var(--accent);
 }
 
+.section {
+  border-bottom: 1px solid #ffffff22;
+}
+
+.inner-section {
+  margin: 5rem auto;
+  width: 100%;
+  max-width: 840px;
+  display: flex;
+  gap: 12px;
+}
+
 .h1 {
   padding: 0.5em 0 0.3em 0;
 }
@@ -108,8 +120,8 @@ span {
   box-shadow: 3px 3px 5px #00000022;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 4px 0 0 32px;
+  justify-content: flex-end;
+  padding: 4px 2dvh 0 4dvh;
 }
 
 .content {
