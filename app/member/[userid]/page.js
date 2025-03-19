@@ -1,5 +1,8 @@
 
+import BskyFeedsByUser from "@/components/BskyFeedsByUser";
+import Feed from "@/components/Feed";
 import MarkedParser from "@/components/MarkedParser";
+import SNSWrapper from "@/components/SNSWrapper";
 import Link from "next/link";
 
 export default async function Home({params}) {
@@ -11,6 +14,7 @@ export default async function Home({params}) {
     const user = {
         pid: 1,
         handle: 'however_ina',
+        bskyHandle: 'howeverina.bsky.social',
         knownAs: '연이나',
         accentColor: '#593bc4',
         bio: `천문대에서 노래하면서 베이스 치는 치즈냥이.\n\n과거와 현재의 하늘을 잇는\n\n싱어송라이터를 목표하고 있습니다.\n\n오래 전, 관상감의 천문학 생도였어요.`,
@@ -42,28 +46,6 @@ export default async function Home({params}) {
         boxShadow: '3px 3px 5px #00000022',
     }
 
-    const profileImgStyle = {
-        width: 70,
-        height: 70,
-        aspectRatio: 1,
-        borderRadius: 14,
-    }
-
-    const snsWrapper = {
-        width: '100%',
-        borderRadius: 20,
-        border: '1px solid #cccccc',
-        padding: 10,
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 10,
-    }
-
-    const snsFeed = {
-        display: 'flex',
-        gap: 10,
-    }
-
     return (
         <div>
         <div style={artistMain}>
@@ -87,32 +69,8 @@ export default async function Home({params}) {
             <div className="content">
             <h1 style={{paddingBottom: '0.3em'}}>진행 중인 라이브 <span>&gt;</span></h1>
             <div style={{width: '100%', aspectRatio: '16 / 9', background: '#000', borderRadius: 20}}></div>
-            <h1 className="h1" >SNS 최신글 <span>&gt;</span></h1>
-            <div style={snsWrapper}>
-                <div style={snsFeed}>
-                <img src="/ina.png" style={profileImgStyle} />
-                <div>
-                    <p><b>{user.knownAs}</b> @{user.handle}</p>
-                    <p>예시 트윗입니다!</p>
-                </div>
-                </div>
-                <hr style={{background:'#cccccc', height:1, border:0}} />
-                <div style={snsFeed}>
-                <img src="/ina.png" style={profileImgStyle} />
-                <div>
-                    <p><b>{user.knownAs}</b> @{user.handle}</p>
-                    <p>예시 트윗입니다! 조금 더 긴 글을 적어 보았어요. 근데 뭘 적지 로렘입숨어쩌고저쩌고.</p>
-                </div>
-                </div>
-                <hr style={{background:'#cccccc', height:1, border:0}} />
-                <div style={snsFeed}>
-                <img src="/ina.png" style={profileImgStyle} />
-                <div>
-                    <p><b>{user.knownAs}</b> @{user.handle}</p>
-                    <p>링크가 있는 경우. <Link href="https://peachtart.me/">https://peachtart.me/</Link></p>
-                </div>
-                </div>
-            </div>
+            <h1 className="h1" >최신 피드 <span>&gt;</span></h1>
+            <BskyFeedsByUser bskyHandle={user.bskyHandle}/>
             </div>
         </div>
         </div>

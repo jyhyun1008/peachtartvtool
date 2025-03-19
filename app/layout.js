@@ -13,10 +13,12 @@ export default function RootLayout({ children }) {
         <div style={{width: '100vw', height: '3rem', background: 'var(--background)', position: 'fixed', left: 0, top: 0, zIndex: 999, boxShadow: '3px 3px 5px #00000022',display: 'flex', gap: '2rem', alignItems: 'center', justifyContent: 'space-between'}}>
           <div style={{display: 'flex', gap: '2rem', marginLeft: '2rem'}}>
             <div><b><span><Link href="/">PeachtArt</Link></span></b></div>
+            <div><Link href="/about" style={{color: 'var(--foreground)'}}>소개</Link></div>
             <div><Link href="/live" style={{color: 'var(--foreground)'}}>라이브</Link></div>
             <div><Link href="/video" style={{color: 'var(--foreground)'}}>영상</Link></div>
           </div>
           <div style={{display: 'flex', gap: '2rem', marginRight: '2rem'}}>
+            <div><Link href="/" style={{color: 'var(--foreground)'}}>디스코드</Link></div>
             <div><Link href="/member/1" style={{color: 'var(--foreground)'}}>마이페이지</Link></div>
           </div>
         </div>

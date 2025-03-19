@@ -5,7 +5,7 @@ function MarkedParser(props) {
 
     const raw = props.raw
     const align= props.align
-    const data = parse(marked.parse(`<div style="text-align: ${align?align:'start'}">${raw}</div>`))
+    const data = parse(`<div style="text-align: ${align?align:'start'}">${marked.parse(raw)}</div>`)
     return data
 }
   
