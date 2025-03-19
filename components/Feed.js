@@ -24,7 +24,8 @@ export default function Feed({date, handle, knownAs, avatar, raw, url}) {
             <div style={snsFeed}>
                 <img src={avatar} style={profileImgStyle} />
                 <div>
-                    <p><b>{knownAs}</b> @{handle}</p>
+                    <p><b>{knownAs}</b></p>
+                    <p style={{fontSize: '0.8rem'}}>@{handle}</p>
                     <MarkedParser raw={rawWithLink} />
                     <p style={{fontSize: '0.8rem'}}><DateTime iso={date} /></p>
                 </div>

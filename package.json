@@ -10,11 +10,19 @@
   },
   "dependencies": {
     "@atproto/api": "^0.14.9",
+    "@neondatabase/serverless": "^0.10.4",
     "@the-convocation/twitter-scraper": "^0.15.1",
     "chzzk": "^1.10.4",
+    "dotenv": "^16.4.7",
+    "drizzle-kit": "^0.30.5",
+    "drizzle-orm": "^0.40.1",
     "html-react-parser": "^5.2.2",
+    "jsonwebtoken": "^9.0.2",
     "marked": "^15.0.7",
     "next": "15.2.3",
+    "next-auth": "^4.24.11",
+    "pg": "^8.14.1",
+    "postgres": "^3.4.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }

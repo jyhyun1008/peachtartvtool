@@ -1,5 +1,6 @@
 :root {
   --accent: #ff4971;
+  --accentransy: #ff497144;
   --background: #29292c;
   --foreground: #fffefd;
 }
@@ -64,6 +65,12 @@ span {
   color: var(--accent);
 }
 
+input {
+  padding: 5px;
+  width: 100%;
+  border-radius: 10px;
+}
+
 .button {
   margin-top: 1rem;
   display: block;
@@ -73,6 +80,10 @@ span {
   padding: 12px 20px;
   border-radius: 20px;
   border: 1px solid var(--accent);
+}
+
+.button:hover {
+  background-color: var(--accentransy);
 }
 
 .section {

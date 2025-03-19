@@ -13,7 +13,6 @@ export default async function BskyFeedsByUser({bskyHandle}) {
         })
     })
     const result = await login.json()
-    console.log(result)
 
     const data = await fetch(`https://bsky.social/xrpc/app.bsky.feed.getAuthorFeed?actor=${bskyHandle}`, {
         method: 'GET',
@@ -23,7 +22,6 @@ export default async function BskyFeedsByUser({bskyHandle}) {
         },
     })
     const result2 = await data.json()
-    console.log(result2.feed[0].post)
 
     const feeds = result2.feed.map(eachfeed => ({
         user: {

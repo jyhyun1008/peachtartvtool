@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
       <div className="slidebar">
-        <img src="/ina.png" style={{width: '100%', height: '300px', objectFit:'cover', objectPosition: 'center'}} />
+        <img src="/check.png" style={{width: '100%', height: '300px', objectFit:'cover', objectPosition: 'center'}} />
       </div>
       <div className='main section'>
         <div className='inner-section'>
