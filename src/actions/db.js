@@ -32,7 +32,7 @@ export const addUserByForm = async (user) => {
                             links: '[]',
                             group: 'pending',
                         })
-                        .where(eq(users.email, user.email))
+                        .where(eq(users.uid, user.uid))
     return data;
 };
 

@@ -58,7 +58,7 @@ export default function Home() {
         body: JSON.stringify({
           chzzkId: chzzkId,
           bskyHandle: bskyHandle,
-          email: session.current.user.email,
+          uid: session.current.user.uid,
         })
       })
       .then((result)=>{router.push(`/`)})
