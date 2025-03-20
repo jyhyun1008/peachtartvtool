@@ -17,7 +17,7 @@ export default async function MemberList() {
     return (
         <div style={{display: 'flex', overflowX: 'auto', gap: 10,}}>
         {users.map((user, index)=>(
-          <Link key={`member${index}`} href={`/member/${user.pid}`} ><div style={{textAlign: 'center', border: '1px solid #cccccc', padding: 40, borderRadius: 20}}>
+          <Link key={`member${index}`} href={`/member/${user.handle}`} ><div style={{textAlign: 'center', border: '1px solid #cccccc', padding: 40, borderRadius: 20}}>
             <img src={user.avatar} style={{width: 128, aspectRatio: 1, borderRadius: 75, border: '3px solid var(--accent)'}} />
             <p><b>{user.knownas}</b></p>
           </div></Link>

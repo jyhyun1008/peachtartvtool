@@ -31,7 +31,7 @@ export default async function Home() {
         {userVideo.map((video, ind)=> (
             <div key={`video${ind}`}>
                 <iframe width="100%" style={{aspectRatio: '16 / 9', borderRadius: 20}} src={video.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                <Link style={{width: '100%', display: 'flex', gap: 10, alignItems: 'center', color: `var(--foreground)`}} href={`/member/${video.user.pid}`}>
+                <Link style={{width: '100%', display: 'flex', gap: 10, alignItems: 'center', color: `var(--foreground)`}} href={`/member/${video.user.handle}`}>
                   <img src={video.user.avatar} style={{height: 48, aspectRatio: 1, borderRadius: 20}} />
                   <div>
                       <p>{video.title}</p>
