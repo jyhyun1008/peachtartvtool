@@ -31,7 +31,7 @@ export default async function handler(req, res) {
                     avatar: avatar,
                 })
                 res.status(200).json({rows: user})
-                redirect('/')
+                redirect(`${process.env.NEXT_PUBLIC_DOMAIN}`)
             } else if(result.length == 0) {
                 let user = await addUser(params)
                 res.status(200).json({rows: ['회원가입을 마저 진행해 주세요!']})
