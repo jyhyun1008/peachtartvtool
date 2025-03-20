@@ -14,7 +14,7 @@ export default async function BskyFeedsByUser({bskyHandle}) {
     })
     const result = await login.json()
 
-    const data = await fetch(`https://bsky.social/xrpc/app.bsky.feed.getAuthorFeed?actor=${bskyHandle}`, {
+    const data = await fetch(`https://bsky.social/xrpc/app.bsky.feed.getAuthorFeed?actor=${bskyHandle}&limit=20`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

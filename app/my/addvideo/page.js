@@ -84,6 +84,7 @@ export default function Home() {
       <div className='main section'>
         <div className='inner-section-feed'>
           <div>
+            <h1>새 영상 추가</h1>
             <p>영상 제목</p>
             <input id="title" onChange={changeTitle} value={title}/>
             <p>주소 (/v/ 뒷부분)</p>

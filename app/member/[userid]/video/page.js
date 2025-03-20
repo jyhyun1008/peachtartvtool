@@ -92,7 +92,7 @@ export default async function Home({params}) {
             <h1 className="h1-nickname">{user.knownas}</h1>
             <div>@{user.handle}</div>
             <div style={{height: '1rem'}}></div>
-            <MarkedParser raw={user.bio} align='center' />
+            <MarkedParser raw={user.bio.replace(/\n/gm, '\n\n')} align='center' />
             </div>
             <div className="artistMenu">
             <Link href={`/member/${userid}`}><div style={circle}><p>홈</p></div></Link>
@@ -106,8 +106,15 @@ export default async function Home({params}) {
                     <h1 className="h1">{category}</h1>
                         <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px'}}>
                         {userVideo.filter((el)=>el.category == category).map((video, ind)=> (
-                            <div key={`video${ind}`} style={{textAlign: 'center'}}>
+                            <div key={`video${ind}`}>
                                 <iframe width="100%" style={{aspectRatio: '16 / 9', borderRadius: 20}} src={video.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                                <div style={{width: '100%', display: 'flex', gap: 10, alignItems: 'center', color: `var(--foreground)`}}>
+                                    <img src={user.avatar} style={{height: 48, aspectRatio: 1, borderRadius: 20}} />
+                                    <div>
+                                        <p>{video.title}</p>
+                                        <p><b>{user.knownas}</b></p>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                         </div>

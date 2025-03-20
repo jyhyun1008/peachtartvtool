@@ -14,7 +14,7 @@ export default async function BskyFeeds() {
     })
     const result = await login.json()
 
-    const data = await fetch(`https://bsky.social/xrpc/app.bsky.feed.getListFeed?list=at://did:plc:y6rdmkdbzzy3nh3xrfcucjlm/app.bsky.graph.list/3lkp3t2zila25`, {
+    const data = await fetch(`https://bsky.social/xrpc/app.bsky.feed.getListFeed?list=at://did:plc:y6rdmkdbzzy3nh3xrfcucjlm/app.bsky.graph.list/3lkp3t2zila25&limit=20`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

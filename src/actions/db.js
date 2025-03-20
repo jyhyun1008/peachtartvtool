@@ -101,11 +101,15 @@ export const addVideo = async (video) => {
 };
 
 export const getAllVideos = async () => {
-    const data = await db.select().from(videos)
+    const data = await db.select().from(videos).orderBy(desc(videos.pid))
+    for await ( let d of data ) {
+        const userdata = await db.select().from(users).where(eq(users.pid, d.owner))
+        d.user = userdata[0]
+    }
     return data
 }
 
 export const getVideosOfUser = async (params) => {
-    const data = await db.select().from(videos).where(eq(videos.owner, params.pid))
+    const data = await db.select().from(videos).orderBy(desc(videos.pid)).where(eq(videos.owner, params.pid))
     return data
 }

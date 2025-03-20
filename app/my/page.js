@@ -130,6 +130,7 @@ export default function Home() {
           handle: bskyHandle.split('.')[0],
           bskyHandle: bskyHandle,
           accentColor: accentColor?accentColor:'#FF4971',
+          avatarLong: avatarLong,
           bio: bio,
           bioLong: bioLong,
           links: JSON.stringify(links),
@@ -174,13 +175,19 @@ export default function Home() {
             <hr />
             <h2>링크</h2>
             <h3>링크 추가하기</h3>
-            제목:
-            <input id="linkTitle" onChange={changeLinkTitle} value={linkTitle} />
-            이미지 주소(imgur 등):
-            <input id="linkThumb" onChange={changeLinkThumb} value={linkThumb} />
-            타겟 URL:
-            <input id="linkUrl" onChange={changeLinkUrl} value={linkUrl} />
-            <div className="button" onClick={()=>addLink()}>추가</div>
+            <div style={{display: 'flex', gap: 10, alignItems: 'center'}}>
+              <div style={{flexGrow: 1}}>
+                <p>제목:</p>
+                <input id="linkTitle" onChange={changeLinkTitle} value={linkTitle} />
+                <p>이미지 주소(imgur 등):</p>
+                <input id="linkThumb" onChange={changeLinkThumb} value={linkThumb} />
+                <p>타겟 URL:</p>
+                <input id="linkUrl" onChange={changeLinkUrl} value={linkUrl} />
+              </div>
+              <div>
+                <div className="button" onClick={()=>addLink()}>추가</div>
+              </div>
+            </div>
             <h3>링크 미리보기</h3>
             <p>최종 저장하지 않으면 반영되지 않습니다.</p>
             <>
@@ -192,9 +199,9 @@ export default function Home() {
                   <p><b>링크 주소</b>: {lnk.url}</p>
                 </div>
                 <div style={{display: 'flex', flexDirection: 'column', gap: 5}}>
-                  <div className="button" style={{minWidth: 128, marginTop: 0, padding: '5px 20px'}} onClick={()=>upLink(ind)}>위로</div>
-                  <div className="button" style={{minWidth: 128, marginTop: 0, padding: '5px 20px'}} onClick={()=>deleteLink(ind)}>삭제</div>
-                  <div className="button" style={{minWidth: 128, marginTop: 0, padding: '5px 20px'}} onClick={()=>downLink(ind)}>아래로</div>
+                  <div className="button" style={{marginTop: 0, padding: '5px 20px'}} onClick={()=>upLink(ind)}>위로</div>
+                  <div className="button" style={{marginTop: 0, padding: '5px 20px'}} onClick={()=>deleteLink(ind)}>삭제</div>
+                  <div className="button" style={{marginTop: 0, padding: '5px 20px'}} onClick={()=>downLink(ind)}>아래로</div>
                 </div>
               </div>
             ))}

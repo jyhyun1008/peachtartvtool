@@ -22,7 +22,7 @@ function Signin(props) {
         return (
             <>
               <div><b>{session.user.knownAs}</b> 님</div>
-              <div className="desktop-menu"><Link href="/my" style={{color: 'var(--foreground)'}} >마이페이지</Link></div>
+              <div className="desktop-menu"><Link href="/my" style={{color: 'var(--foreground)'}} >설정</Link></div>
               <div className="desktop-menu"><Link href="/" style={{color: 'var(--foreground)'}} >디스코드</Link></div>
               <div className="desktop-menu" style={span} onClick={() => signOut()}>로그아웃</div>
             </>

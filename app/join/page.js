@@ -11,11 +11,8 @@ export default function Home() {
       <div className='main section'>
         <div className='inner-section'>
           <div>
-            <h1>채널에 필요한 모든 것을 정리합시다.</h1>
-            <p>로렘 입숨 돌러 싯 아멧...</p>
-          </div>
-          <div style={{width: '100%', maxWidth: '300px', overflow: 'hidden', borderRadius: 20}}>
-            <img src="/ina.png"/>
+            <h1>오른쪽 위의 네이버 로그인 버튼을 눌러주세요</h1>
+            <p>감사합니다!</p>
           </div>
         </div>
       </div>

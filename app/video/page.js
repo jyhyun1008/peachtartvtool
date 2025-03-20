@@ -1,7 +1,16 @@
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
 
+  const getVideo = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/getAllVideos', {
+    method: 'POST',
+    headers: {
+        'content-type': 'application/json',
+    },
+    body: JSON.stringify({})
+  })
+  const videoJson = await getVideo.json()
+  const userVideo = videoJson.rows
 
   return (
     <div>
@@ -9,15 +18,25 @@ export default function Home() {
         <img src="/check.png" style={{width: '100%', height: '300px', objectFit:'cover', objectPosition: 'center'}} />
       </div>
       <div className='main section'>
-        <div className='inner-section'>
+        <div className='inner-section'  style={{textAlign: 'center', justifyContent: 'center'}}>
           <div>
-            <h1>채널에 필요한 모든 것을 정리합시다.</h1>
-            <p>로렘 입숨 돌러 싯 아멧...</p>
-          </div>
-          <div style={{width: '100%', maxWidth: '300px', overflow: 'hidden', borderRadius: 20}}>
-            <img src="/ina.png"/>
+              <h1>영상 / 클립 모음</h1>
           </div>
         </div>
+      </div>
+      <div className='main section' id="livelist">
+        {userVideo.map((video, ind)=> (
+            <div key={`video${ind}`}>
+                <iframe width="100%" style={{aspectRatio: '16 / 9', borderRadius: 20}} src={video.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                <Link style={{width: '100%', display: 'flex', gap: 10, alignItems: 'center', color: `var(--foreground)`}} href={`/member/${video.user.pid}`}>
+                  <img src={video.user.avatar} style={{height: 48, aspectRatio: 1, borderRadius: 20}} />
+                  <div>
+                      <p>{video.title}</p>
+                      <p><b>{video.user.knownas}</b></p>
+                  </div>
+                </Link>
+            </div>
+          ))}
       </div>
     </div>
   );

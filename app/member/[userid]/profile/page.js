@@ -55,7 +55,7 @@ export default async function Home({params}) {
             <h1 className="h1-nickname">{user.knownas}</h1>
             <div>@{user.handle}</div>
             <div style={{height: '1rem'}}></div>
-            <MarkedParser raw={user.bio} align='center'/>
+            <MarkedParser raw={user.bio.replace(/\n/gm, '\n\n')} align='center' />
             </div>
             <div className="artistMenu">
             <Link href={`/member/${userid}`}><div style={circle}><p>홈</p></div></Link>
