@@ -50,7 +50,6 @@ export default function Home() {
       setAvatarLong(me.current.avatarlong)
       setLinks(JSON.parse(me.current.links))
 
-      console.log(me.current)
     }
 
     fetchData()
@@ -104,7 +103,6 @@ export default function Home() {
   function deleteLink(i) {
     links.splice(i, 1)
     setLinks([...links])
-    console.log(links)
   }
 
   function upLink(i) {
@@ -151,7 +149,8 @@ export default function Home() {
         <div className='inner-section-feed'>
           <div>
             <h1><span style={{color: 'var(--accent)'}}>{user?.knownas}</span> 님의 설정페이지</h1>
-            <Link href={`/member/${user?.pid}`}>내 페이지 보러 가기</Link>
+            <p><Link href={`/member/${user?.pid}`}>내 페이지 보러 가기</Link></p>
+            <p><Link href={`/my/addvideo`}>새 영상 추가하러 가기</Link></p>
             <h2>프로필 사진</h2>
             <div style={{width: '100%', maxWidth: '300px', overflow: 'hidden', borderRadius: 20}}>
               <img src={user?.avatar} />

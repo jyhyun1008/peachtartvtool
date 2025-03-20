@@ -86,50 +86,26 @@ export const getUserByEmail = async (email) => {
     return data;
 };
 
-// export const addPost = async (post) => {
-//     const boarddata = await db.select().from(boards).where(eq(boards.url, post.board))
-//     const userdata = await db.select().from(users).where(eq(users.email, post.user))
-//     if (userdata[0]) {
-//         let data = await db.insert(posts)
-//         .values({
-//             title: post.title,
-//             content: post.content,
-//             board: boarddata[0].pid,
-//             createdat: sql`NOW()`,
-//             thumburl: post.content.split(`![`)[1]?post.content.split(`![`)[1].split(`](`)[1].split(`)`)[0]:'https://cdn.imweb.me/upload/S202004039b79029ae4742/e4b86a6b2d348.png',
-//             user: userdata[0].pid,
-//             public: post.public?post.public:true
-//         });
-//         return data;
-//     }
-// };
+export const addVideo = async (video) => {
+    const userdata = await db.select().from(users).where(eq(users.email, video.email))
+    if (userdata[0]) {
+        let data = await db.insert(videos)
+        .values({
+            title: video.title,
+            url: video.url,
+            category: video.category,
+            owner: userdata[0].pid,
+        });
+        return data
+    }
+};
 
-// export const updatePost = async (post) => {
-//     let data = await db.update(posts)
-//     .set({
-//         title: post.title,
-//         content: post.content,
-//         thumburl: post.content.split(`![`)[1]?post.content.split(`![`)[1].split(`](`)[1].split(`)`)[0]:'https://cdn.imweb.me/upload/S202004039b79029ae4742/e4b86a6b2d348.png',
-//         public: post.public?post.public:true
-//     })
-//     .where(eq(posts.pid, post.pid))
-//     return data
-// }
+export const getAllVideos = async () => {
+    const data = await db.select().from(videos)
+    return data
+}
 
-// export const deletePost = async (url, email) => {
-//     const userdata = await db.select().from(users).where(eq(users.email, email))
-//     const data = await db.delete(posts).where(and(eq(posts.user, userdata[0].pid), eq(posts.pid, url)));
-//     let replydata = await db.delete(replies).where(eq(replies.post, url))
-//     return data
-// }
-
-// export const getAllPosts = async () => {
-//     const data = await db.select().from(posts).where(eq(posts.public, true));
-//     return data;
-// };
-
-// export const getPostsOfUser = async (username) => {
-//     const usernameresult = await db.select().from(users).where(eq(users.username, username));
-//     const data = await db.select().from(posts).where(and(eq(posts.public, true), eq(posts.user, usernameresult[0].pid)));
-//     return data;
-// };
+export const getVideosOfUser = async (params) => {
+    const data = await db.select().from(videos).where(eq(videos.owner, params.pid))
+    return data
+}
