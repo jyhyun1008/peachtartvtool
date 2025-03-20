@@ -7,6 +7,7 @@ export const addUser = async (user) => {
     const data = await db.insert(users)
                         .values({
                             uid: user.uid,
+                            handle: user.uid,
                             knownas: '게스트',
                             email: user.email,
                             group: 'guest',
