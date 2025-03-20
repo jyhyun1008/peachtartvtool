@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
 
   const getVideo = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getAllVideos`, {

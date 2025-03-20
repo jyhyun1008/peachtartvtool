@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { getSession } from "next-auth/react";
 import MarkedParser from "@/components/MarkedParser";
 import { useRouter } from "next/navigation";
+export const dynamic = 'force-dynamic';
 
 export default function Home() {
 

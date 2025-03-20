@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useSession, getSession } from "next-auth/react"
 import { useRouter } from 'next/navigation'
+export const dynamic = 'force-dynamic';
 
 export default function Home() {
 
