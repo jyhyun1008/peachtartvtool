@@ -1,0 +1,1 @@
+ALTER TABLE "users" ADD COLUMN "uid" varchar(100);

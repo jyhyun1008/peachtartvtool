@@ -2,6 +2,7 @@ import { integer, pgTable, varchar, timestamp, boolean, text } from 'drizzle-orm
 
 export const users = pgTable('users', {
     pid: integer().primaryKey().generatedAlwaysAsIdentity(),
+    uid: varchar({length: 100}).notNull().unique(),
     handle: varchar({length: 50 }).notNull().unique(),
     knownas: varchar({ length: 50 }).notNull(),
     accentcolor: varchar({length: 10}),

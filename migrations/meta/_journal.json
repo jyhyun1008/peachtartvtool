@@ -15,6 +15,20 @@
       "when": 1742391458571,
       "tag": "0001_absurd_randall",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1742468960466,
+      "tag": "0002_sweet_tyger_tiger",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1742469361042,
+      "tag": "0003_melted_quasar",
+      "breakpoints": true
     }
   ]
 }

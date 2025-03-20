@@ -6,7 +6,7 @@ import { users, videos } from "@/src/db/schema";
 export const addUser = async (user) => {
     const data = await db.insert(users)
                         .values({
-                            handle: user.handle,
+                            uid: user.uid,
                             knownas: '게스트',
                             email: user.email,
                             group: 'guest',

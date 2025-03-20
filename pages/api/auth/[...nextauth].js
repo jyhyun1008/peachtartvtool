@@ -30,6 +30,8 @@ export default NextAuth({
       const json = (await getGroup.json())
       const knownAs = json.rows[0].knownas
       const group = json.rows[0].group
+      const pid = json.rows[0].pid
+      session.user.pid = pid
       session.user.group = group
       session.user.knownAs = knownAs
       //session.user = token
@@ -43,7 +45,7 @@ export default NextAuth({
         method: 'POST',
         mode: 'no-cors',
         body: JSON.stringify({
-          handle: id,
+          uid: id,
           email: email,
         }),
         headers: {
