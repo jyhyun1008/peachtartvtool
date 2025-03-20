@@ -21,7 +21,7 @@ export default function Home() {
       session.current = await getSession()
 
       if (!session.current) {
-        location.href('/')
+        router.push('/')
       }
 
       const myData = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/getUserByEmail', {
