@@ -5,7 +5,7 @@ export const users = pgTable('users', {
     uid: varchar({length: 100}).notNull().unique(),
     handle: varchar({length: 50 }).notNull().unique(),
     knownas: varchar({ length: 50 }).notNull(),
-    accentcolor: varchar({length: 10}),
+    accentcolor: varchar({length: 50}),
     group: varchar({ length: 50 }),
     email: varchar({ length: 255 }).notNull().unique(),
     avatar: varchar({ length: 355 }),

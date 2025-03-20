@@ -1,0 +1,1 @@
+ALTER TABLE "users" ALTER COLUMN "accentcolor" SET DATA TYPE varchar(50);
