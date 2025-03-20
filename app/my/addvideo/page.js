@@ -38,7 +38,6 @@ export default function Home() {
       me.current = rows.rows[0]
       setUser(me.current)
 
-      console.log(me.current)
     }
 
     fetchData()
