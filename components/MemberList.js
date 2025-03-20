@@ -12,7 +12,7 @@ export default async function MemberList() {
         body: JSON.stringify({})
     })
     const json = await getUsers.json()
-    const users = json.rows
+    const users = json? json.rows :[]
 
     return (
         <div style={{display: 'flex', overflowX: 'auto', gap: 10,}}>
