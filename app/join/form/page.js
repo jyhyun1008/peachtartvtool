@@ -1,16 +1,27 @@
 'use client'
 import Link from "next/link";
-import { useState } from "react";
-import { useSession } from "next-auth/react"
+import { useState, useRef, useEffect } from "react";
+import { useSession, getSession } from "next-auth/react"
 import { useRouter } from 'next/navigation'
 
 export default function Home() {
 
   const router = useRouter()
-  const { data: session } = useSession()
-  if (!session || session.user.group != 'guest') {
-    router.push('/')
-  }
+  //const { data: session } = useSession()
+
+    let session = useRef({})
+
+    useEffect(() => {
+      async function fetchData(){
+  
+        console.log(session.current)
+        if (!session.current || session.current.user.group != 'guest') {
+          router.push('/')
+        }
+      }
+      fetchData()
+    }, [])
+  
 
   const [chzzkId, setChzzkId] = useState('')
   const [bskyHandle, setBskyHandle] = useState('')
@@ -35,19 +46,19 @@ export default function Home() {
 
     if (chzzkId != '' && bskyHandle != '') {
       //chzzk
-      const result = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/addUserByForm', {
+      fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/addUserByForm', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
-            'authorization': session?.user.accessToken,
+            'authorization': session?.current.user.accessToken,
         },
         body: JSON.stringify({
           chzzkId: chzzkId,
           bskyHandle: bskyHandle,
-          email: session.user.email,
+          email: session.current.user.email,
         })
       })
-      router.push('/')
+      .then((result)=>{router.push(`/`)})
     }
   }
 
