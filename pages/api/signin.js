@@ -26,7 +26,7 @@ export default async function handler(req, res) {
                     avatar = result[0].avatar
                 }
                 let user = await signinUser({
-                    email: params.email,
+                    uid: params.uid,
                     knownAs: knownAs,
                     avatar: avatar,
                 })

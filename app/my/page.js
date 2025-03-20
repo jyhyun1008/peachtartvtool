@@ -127,9 +127,8 @@ export default function Home() {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
-            'authorization': session.current.user?.accessToken,
+            'authorization': token,
         },
-        mode: 'no-cors',
         body: JSON.stringify({
           handle: bskyHandle.split('.')[0],
           bskyHandle: bskyHandle,
@@ -141,7 +140,7 @@ export default function Home() {
           uid: me.current?.uid,
         })
       })
-      .then((result)=> {router.push(`/member/${me.current.pid}`)})
+      .then((result)=> {router.push(`/member/${me.current.handle}`)})
     }
   }
 
