@@ -2,6 +2,7 @@ import { getUsers } from "@/src/actions/db"
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
+
         let result = await getUsers()
 
         // function shuffle(array) {
@@ -17,6 +18,10 @@ export default async function handler(req, res) {
         // }
 
         // let result2 = shuffle(result)
+        res.setHeader('Access-Control-Allow-Origin', '*'); // 모든 도메인 허용
+        res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
         res.status(200).json({rows: result})
     }
 }
