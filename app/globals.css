@@ -136,7 +136,7 @@ input, textarea {
   height: calc(100dvh - 3rem);
   left: 0;
   top: 3rem;
-  padding: 100 20 100 20;
+  padding: 100px 20px 100px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -175,7 +175,7 @@ input, textarea {
   width: 65vw;
   height: 100dvh;
   margin-left: 30vw;
-  padding: calc(3rem + 100px) 100 100 calc(100px + 5vw);
+  padding: calc(3rem + 100px) 100px 100px calc(100px + 5vw);
   background: var(--background);
 }
 
@@ -237,7 +237,7 @@ input, textarea {
     width: 100vw;
     height: fit-content;
     margin-left: 0;
-    padding: calc(3rem + 100px) 10 calc(100px + 5vw) 10 ;
+    padding: calc(3rem + 100px) 10px calc(100px + 5vw) 10px;
     background: var(--background);
   }
 

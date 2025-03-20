@@ -36,7 +36,6 @@ export default function Home() {
         headers: {
             'content-type': 'application/json',
         },
-        mode: 'no-cors',
         body: JSON.stringify({
             email: session.current.user.email
         })
