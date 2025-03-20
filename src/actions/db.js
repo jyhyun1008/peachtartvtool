@@ -47,7 +47,7 @@ export const updateUser = async (user) => {
                             biolong: user.bioLong,
                             links: user.links,
                         })
-                        .where(eq(users.email, user.email))
+                        .where(eq(users.uid, user.uid))
     return data;
 };
 
@@ -63,7 +63,7 @@ export const signinUser = async (user) => {
                             knownas: user.knownAs, //chzzk을 fetch해서 chzzk의 닉네임대로.
                             avatar: user.avatar, //chzzk을 fetch해서 chzzk의 아바타대로.
                         })
-                        .where(eq(users.email, user.email))
+                        .where(eq(users.uid, user.uid))
     return data;
 };
 
@@ -88,7 +88,7 @@ export const getUserByEmail = async (email) => {
 };
 
 export const addVideo = async (video) => {
-    const userdata = await db.select().from(users).where(eq(users.email, video.email))
+    const userdata = await db.select().from(users).where(eq(users.uid, video.uid))
     if (userdata[0]) {
         let data = await db.insert(videos)
         .values({

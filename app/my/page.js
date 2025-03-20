@@ -120,12 +120,14 @@ export default function Home() {
 
   function submit() {
 
-    if (bskyHandle) {
+    if (bskyHandle && session.current.user.accessToken) {
+      var token = session.current.user.accessToken
+      console.log(token)
       fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/updateUser`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
-            'authorization': session.current?.user.accessToken,
+            'authorization': session.current.user?.accessToken,
         },
         mode: 'no-cors',
         body: JSON.stringify({
@@ -136,7 +138,7 @@ export default function Home() {
           bio: bio,
           bioLong: bioLong,
           links: JSON.stringify(links),
-          email: session.current?.user.email,
+          uid: me.current?.uid,
         })
       })
       .then((result)=> {router.push(`/member/${me.current.pid}`)})

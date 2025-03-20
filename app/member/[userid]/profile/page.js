@@ -7,20 +7,24 @@ export default async function Home({params}) {
 
     const userid = (await params).userid
 
-    //TODO: API POST userid
-
-    const getUser = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getUserById`, {
+    const getUser = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getUserByHandle`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
         },
         mode: 'no-cors',
         body: JSON.stringify({
-            pid: userid
+            handle: userid
         })
     })
     const json = await getUser.json()
-    let user = json.rows[0]
+    let user
+    if (json.rows.length == 1 && json.rows[0].group == 'member') {
+        user = json.rows[0]
+    } else {
+        redirect('/')
+    }
+
 
     const artistMain = {
         width: '100%',

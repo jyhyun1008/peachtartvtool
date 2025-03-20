@@ -7,18 +7,14 @@ export default async function Home({params}) {
 
     const userid = (await params).userid
 
-    if (parseInt(userid) != userid) {
-        redirect('/')
-    }
-
-    const getUser = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getUserById`, {
+    const getUser = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getUserByHandle`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
         },
         mode: 'no-cors',
         body: JSON.stringify({
-            pid: userid
+            handle: userid
         })
     })
     const json = await getUser.json()
@@ -28,6 +24,7 @@ export default async function Home({params}) {
     } else {
         redirect('/')
     }
+
 
 
     const getVideo = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getVideosOfUser`, {
