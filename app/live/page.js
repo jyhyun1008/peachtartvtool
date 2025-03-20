@@ -1,6 +1,8 @@
 import Chzzk from "@/components/Chzzk";
 import CountLives from "@/components/CountLives";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
 
   const getUsers = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getUsers`, {
