@@ -36,7 +36,7 @@ export default NextAuth({
       return session 
     },
     async signIn({ user }) {
-      const { id, name, email } = user
+      const { id, email } = user
       const accessToken = signJwtAccessToken(user)
       
       const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/signin`, {
@@ -44,7 +44,6 @@ export default NextAuth({
         mode: 'no-cors',
         body: JSON.stringify({
           handle: id,
-          knownAs: name,
           email: email,
         }),
         headers: {

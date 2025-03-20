@@ -7,7 +7,7 @@ export const addUser = async (user) => {
     const data = await db.insert(users)
                         .values({
                             handle: user.handle,
-                            knownas: user.knownAs,
+                            knownas: '게스트',
                             email: user.email,
                             group: 'guest',
                             createdat: sql`NOW()`,

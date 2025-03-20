@@ -154,9 +154,10 @@ export default function Home() {
             <h1><span style={{color: 'var(--accent)'}}>{user?.knownas}</span> 님의 설정페이지</h1>
             <p><Link href={`/member/${user?.pid}`}>내 페이지 보러 가기</Link></p>
             <p><Link href={`/my/addvideo`}>새 영상 추가하러 가기</Link></p>
-            <h2>프로필 사진</h2>
+            <h2>프로필 사진 / 이메일 주소</h2>
             <div style={{width: '100%', maxWidth: '300px', overflow: 'hidden', borderRadius: 20}}>
               <img src={user?.avatar} />
+              <p>{user?.email}</p>
             </div>
             <div>프로필 사진은 재 로그인 시 치지직 기준으로 변경됩니다.</div>
             <hr />
