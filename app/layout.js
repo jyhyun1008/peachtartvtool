@@ -4,8 +4,27 @@ import AuthSession from "@/components/AuthSession";
 import Signin from "@/components/Signin";
 
 export const metadata = {
-  title: "PeachtArt Hub 피치타르트",
-  description: "정말 느슨한 음악계 버츄얼 동맹",
+  title: "PeachtArt Hub",
+  description: "음악계 버츄얼 동맹 피치타르트",
+  openGraph: {
+    title: "PeachtArt Hub",
+    description: "음악계 버츄얼 동맹 피치타르트",
+    siteName: "PeachtArt Hub",
+    locale: 'ko_KR',
+    type: 'website',
+    url: process.env.NEXT_PUBLIC_DOMAIN,
+    images: {
+      url: "/peachtart.png",
+    },
+  },
+  twitter: {
+    card: 'summary', 
+    title: "PeachtArt Hub",
+    description: "음악계 버츄얼 동맹 피치타르트",
+    images: {
+      url: "/peachtart.png",
+    },
+  },
 };
 
 export default function RootLayout({ children }) {

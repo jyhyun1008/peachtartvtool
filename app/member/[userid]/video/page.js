@@ -123,3 +123,49 @@ export default async function Home({params}) {
         </div>
     );
 }
+
+export async function generateMetadata(
+    { params },
+    parent
+  ) {
+    // read route params
+    const { userid } = await params
+   
+    // fetch data
+    const product = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getUserByHandle`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+        },
+        mode: 'no-cors',
+        body: JSON.stringify({
+            handle: userid
+        })
+    }).then((res) => res.json())
+
+    let user
+    if (product.rows.length == 1 && product.rows[0].group == 'member') {
+        user = product.rows[0]
+    }
+   
+    // optionally access and extend (rather than replace) parent metadata
+    const previousImages = (await parent).openGraph?.images || []
+   
+    return {
+        title: `${user.knownas} - PeachtArt Hub`,
+        description: user.bio,
+        openGraph: {
+            title: `${user.knownas} - PeachtArt Hub`,
+            description: user.bio,
+            siteName: user.knownas,
+            url: `${process.env.NEXT_PUBLIC_DOMAIN}/member/${userid}`,
+            images: [user.avatar,...previousImages],
+        },
+        twitter: {
+            card: 'summary', // 여기다가 player 지정하면 플레이어 된대
+            title: `${user.knownas} - PeachtArt Hub`,
+            description: user.bio,
+            images: [user.avatar,...previousImages],
+        }
+    }
+  }
