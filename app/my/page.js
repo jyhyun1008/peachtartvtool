@@ -30,7 +30,7 @@ export default function Home() {
         router.push('/')
       }
 
-      const myData = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/getUserByEmail', {
+      const myData = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getUserByEmail`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -121,7 +121,7 @@ export default function Home() {
   function submit() {
 
     if (bskyHandle) {
-      fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/updateUser', {
+      fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/updateUser`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',

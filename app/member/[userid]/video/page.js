@@ -11,7 +11,7 @@ export default async function Home({params}) {
         redirect('/')
     }
 
-    const getUser = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/getUserById', {
+    const getUser = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getUserById`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -30,7 +30,7 @@ export default async function Home({params}) {
     }
 
 
-    const getVideo = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/getVideosOfUser', {
+    const getVideo = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getVideosOfUser`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',

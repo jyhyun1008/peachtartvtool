@@ -17,7 +17,7 @@ export default NextAuth({
     async session({session, token}) {
       const accessToken = signJwtAccessToken(session.user)
       session.user.accessToken = accessToken
-      const getGroup = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/getUserByEmail', {
+      const getGroup = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getUserByEmail`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -39,19 +39,7 @@ export default NextAuth({
       const { id, name, email } = user
       const accessToken = signJwtAccessToken(user)
       
-      // const getGroup = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/getUserByEmail', {
-      //   method: 'POST',
-      //   headers: {
-      //       'content-type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     email: email
-      //   })
-      // })
-      // const json = (await getGroup.json())
-      // const group = json.rows?json.rows[0].group:'guest'
-      
-      const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/signin', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/signin`, {
         method: 'POST',
         mode: 'no-cors',
         body: JSON.stringify({

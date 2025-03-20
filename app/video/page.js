@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default async function Home() {
 
-  const getVideo = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/getAllVideos', {
+  const getVideo = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getAllVideos`, {
     method: 'POST',
     headers: {
         'content-type': 'application/json',

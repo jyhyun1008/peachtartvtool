@@ -46,7 +46,7 @@ export default function Home() {
 
     if (chzzkId != '' && bskyHandle != '') {
       //chzzk
-      fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/addUserByForm', {
+      fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/addUserByForm`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
