@@ -30,7 +30,6 @@ export default function Home() {
         headers: {
             'content-type': 'application/json',
         },
-        mode: 'no-cors',
         body: JSON.stringify({
             email: session.current.user.email
         })
@@ -59,21 +58,23 @@ export default function Home() {
 
   function submit() {
 
-    if (title && url && category) {
+    if (title && url && category && session.current.user.accessToken) {
+      var token = session.current.user.accessToken
+      console.log(token)
       fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/addVideo`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
-            'authorization': session.current?.user.accessToken,
+            'authorization': token,
         },
         body: JSON.stringify({
           title: title,
           url: `https://www.youtube.com/embed/${url}`,
           category: category,
-          email: session.current?.user.email,
+          uid: session.current?.user.uid,
         })
       })
-      .then((result)=> {router.push(`/member/${me.current.pid}/video`)})
+      .then((result)=> {router.push(`/member/${me.current.handle}/video`)})
     }
   }
 
