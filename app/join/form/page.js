@@ -48,18 +48,19 @@ export default function Home() {
 
     if (chzzkId != '' && bskyHandle != '' && session.current.user.accessToken) {
       //chzzk
-      console.log(session.current.user)
+      var token = session.current.user.accessToken
+      console.log(token)
       fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/addUserByForm`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
-            'authorization': session.current.user.accessToken,
+            'authorization': token,
         },
-        mode: 'no-cors',
         body: JSON.stringify({
           chzzkId: chzzkId,
           bskyHandle: bskyHandle,
           uid: session.current.user.uid,
+          token: token,
         })
       })
       .then((result)=>{router.push(`/`)})
