@@ -22,6 +22,7 @@ export default NextAuth({
         headers: {
             'content-type': 'application/json',
         },
+        mode: 'no-cors',
         body: JSON.stringify({
           email: session.user.email
         })
@@ -52,6 +53,7 @@ export default NextAuth({
       
       const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/signin', {
         method: 'POST',
+        mode: 'no-cors',
         body: JSON.stringify({
           handle: id,
           knownAs: name,

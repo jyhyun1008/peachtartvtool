@@ -35,6 +35,7 @@ export default function Home() {
         headers: {
             'content-type': 'application/json',
         },
+        mode: 'no-cors',
         body: JSON.stringify({
             email: session.current.user.email
         })
@@ -126,6 +127,7 @@ export default function Home() {
             'content-type': 'application/json',
             'authorization': session.current?.user.accessToken,
         },
+        mode: 'no-cors',
         body: JSON.stringify({
           handle: bskyHandle.split('.')[0],
           bskyHandle: bskyHandle,

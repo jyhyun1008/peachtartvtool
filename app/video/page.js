@@ -7,6 +7,7 @@ export default async function Home() {
     headers: {
         'content-type': 'application/json',
     },
+    mode: 'no-cors',
     body: JSON.stringify({})
   })
   const videoJson = await getVideo.json()

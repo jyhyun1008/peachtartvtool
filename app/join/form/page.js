@@ -52,6 +52,7 @@ export default function Home() {
             'content-type': 'application/json',
             'authorization': session?.current.user.accessToken,
         },
+        mode: 'no-cors',
         body: JSON.stringify({
           chzzkId: chzzkId,
           bskyHandle: bskyHandle,

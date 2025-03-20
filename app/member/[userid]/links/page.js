@@ -14,6 +14,7 @@ export default async function Home({params}) {
         headers: {
             'content-type': 'application/json',
         },
+        mode: 'no-cors',
         body: JSON.stringify({
             pid: userid
         })
