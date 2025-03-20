@@ -153,7 +153,7 @@ export default function Home() {
         <div className='inner-section-feed'>
           <div>
             <h1><span style={{color: 'var(--accent)'}}>{user?.knownas}</span> 님의 설정페이지</h1>
-            <p><Link href={`/member/${user?.pid}`}>내 페이지 보러 가기</Link></p>
+            <p><Link href={`/member/${user?.handle}`}>내 페이지 보러 가기</Link></p>
             <p><Link href={`/my/addvideo`}>새 영상 추가하러 가기</Link></p>
             <h2>프로필 사진 / 이메일 주소</h2>
             <div style={{width: '100%', maxWidth: '300px', overflow: 'hidden', borderRadius: 20}}>
