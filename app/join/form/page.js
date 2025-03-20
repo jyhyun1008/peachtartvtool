@@ -52,13 +52,13 @@ export default function Home() {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
-            'authorization': session?.current.user.accessToken,
+            'authorization': session.current?.user.accessToken,
         },
         mode: 'no-cors',
         body: JSON.stringify({
           chzzkId: chzzkId,
           bskyHandle: bskyHandle,
-          uid: session.current.user.uid,
+          uid: session.current?.user.uid,
         })
       })
       .then((result)=>{router.push(`/`)})
