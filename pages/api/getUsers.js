@@ -10,9 +10,10 @@ export default async function handler(req, res) {
               let j = Math.floor(Math.random() * (i + 1));
               [array[i], array[j]] = [array[j], array[i]];
             }
-          }
+            return array
+        }
 
-        shuffle(result)
-        res.status(200).json({rows: result})
+        let result2 = shuffle(result)
+        res.status(200).json({rows: result2})
     }
 }
