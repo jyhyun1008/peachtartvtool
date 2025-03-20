@@ -25,15 +25,13 @@ export default async function Home({params}) {
         redirect('/')
     }
 
-
-
     const getVideo = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getVideosOfUser`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
         },
         body: JSON.stringify({
-            pid: userid
+            pid: user.pid
         })
     })
     const videoJson = await getVideo.json()
