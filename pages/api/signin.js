@@ -35,7 +35,7 @@ export default async function handler(req, res) {
             } else if(result.length == 0) {
                 let user = await addUser(params)
                 res.status(200).json({rows: ['회원가입을 마저 진행해 주세요!']})
-                redirect(`${process.env.NEXT_PUBLIC_DOMAIN}/join/form`)
+                redirect(`${process.env.NEXT_PUBLIC_DOMAIN}join/form`)
             }
         }
     }
