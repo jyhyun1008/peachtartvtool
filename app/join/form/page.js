@@ -44,9 +44,9 @@ export default function Home() {
     }
   }
 
-  const submit = async () => {
+  const submit = () => {
 
-    if (chzzkId != '' && bskyHandle != '') {
+    if (chzzkId != '' && bskyHandle != '' && session.current) {
       //chzzk
       fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/addUserByForm`, {
         method: 'POST',
