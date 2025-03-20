@@ -75,7 +75,7 @@ export default function Home() {
           <h1>가입 신청 완료하기</h1>
           <div>계속하기 위해서 다음 정보를 작성해주세요.</div>
           <div>
-            <p>치지직 닉네임</p>
+            <p>치지직 주소</p>
             <input id="chzzkId" onInput={updateChzzkId} />
           </div>
           <div>

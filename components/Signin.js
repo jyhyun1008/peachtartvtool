@@ -11,7 +11,7 @@ function Signin(props) {
         color: 'var(--foreground)'
     }
 
-    if(session && session.user.group == 'guest') {
+    if(session && session.user.group != 'member') {
         return (
             <>
             <div className="desktop-menu" style={span} onClick={() => signOut()}>로그아웃</div>
@@ -23,7 +23,7 @@ function Signin(props) {
             <>
               <div><b>{session.user.knownAs}</b> 님</div>
               <div className="desktop-menu"><Link href="/my" style={{color: 'var(--foreground)'}} >설정</Link></div>
-              <div className="desktop-menu"><Link href="/" style={{color: 'var(--foreground)'}} >디스코드</Link></div>
+              <div className="desktop-menu"><Link href="https://discord.gg/dY9RcyJztN" style={{color: 'var(--foreground)'}} >디스코드</Link></div>
               <div className="desktop-menu" style={span} onClick={() => signOut()}>로그아웃</div>
             </>
         )
