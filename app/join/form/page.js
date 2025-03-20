@@ -46,7 +46,7 @@ export default function Home() {
 
   const submit = () => {
 
-    if (chzzkId != '' && bskyHandle != '' && session.current.user) {
+    if (chzzkId != '' && bskyHandle != '' && session.current.user.accessToken) {
       //chzzk
       console.log(session.current.user)
       fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/addUserByForm`, {
