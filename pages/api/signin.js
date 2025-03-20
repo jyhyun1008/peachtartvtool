@@ -16,7 +16,7 @@ export default async function handler(req, res) {
             if (result.length == 1) {
                 let knownAs
                 let avatar
-                if (result[0].group == 'user' || result[0].group == 'pending'){
+                if (result[0].group == 'member' || result[0].group == 'pending'){
                     const client = new ChzzkClient()
                     const chzzkCh = await client.channel(result[0].chzzkid)
                     knownAs = chzzkCh.channelName

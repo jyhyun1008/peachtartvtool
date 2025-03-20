@@ -52,7 +52,7 @@ export const signinUser = async (user) => {
 };
 
 export const getUsers = async () => {
-    const data = await db.select().from(users);
+    const data = await db.select().from(users).where(eq(users.group, 'member'));
     return data;
 };
 

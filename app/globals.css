@@ -86,13 +86,18 @@ input {
   background-color: var(--accentransy);
 }
 
+.emoji {
+  font-size: 1.7rem;
+  margin-bottom: -10px;
+}
+
 .section {
   border-bottom: 1px solid #ffffff22;
 }
 
 .inner-section {
   margin: 5rem auto;
-  width: 100%;
+  width: calc( 100% - 20px );
   max-width: 840px;
   display: flex;
   gap: 12px;
@@ -101,7 +106,7 @@ input {
 
 .inner-section-feed {
   margin: 5rem auto;
-  width: 100%;
+  width: calc( 100% - 20px );
   max-width: 840px;
   display: flex;
   flex-direction: column;
@@ -142,7 +147,7 @@ input {
   padding-top: 100px;
   gap: 1rem;
   align-items: center;
-  margin: calc(10dvh - 3rem) 0 calc(10dvh) 0;
+  margin: calc(10dvh - 3rem) 0 10dvh 0;
 }
 
 .artistMenu > * > div {
@@ -175,4 +180,82 @@ input {
 .channel-link:hover > div {
   background: #00000055 !important;
   display: flex !important;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .mobile-menu {
+    display: block;
+    position: relative;
+  }
+
+  .mobile-menu .emoji{
+    position: relative;
+    z-index: 999999;
+  }
+
+  .mobile-menu .menu-toggle {
+    display: none;
+  }
+
+  .mobile-menu:hover .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70vh;
+    background: var(--accent);
+  }
+
+  .desktop-menu {
+    display: none !important;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100vw;
+    height: fit-content;
+    }
+
+  .content {
+    width: 100vw;
+    height: fit-content;
+    margin-left: 0;
+    padding: calc(3rem + 100px) 10 calc(100px + 5vw) 10 ;
+    background: var(--background);
+  }
+
+  .artistMenu {
+    position: relative;
+    z-index: 11;
+    width: 100vw;
+    height: 2rem;
+    left: 100vw;
+    top: 1rem;
+    left:0;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 20px;
+    gap: 1rem;
+    align-items: center;
+    margin: 0;
+  }
+
+  .artistMenu > * > div {
+    width: 20vw;
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0 0 0 ;
+  }
+
 }
