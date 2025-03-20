@@ -22,7 +22,7 @@ export default async function handler(req, res) {
                 handle: params.bskyHandle.split('.')[0],
                 chzzkId: chzzkId,
                 avatar: avatar,
-                email: params.email
+                uid: params.uid
             })
     
             res.status(200).json({rows: result})
