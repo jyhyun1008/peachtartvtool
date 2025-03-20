@@ -9,7 +9,7 @@ export default async function BskyFeeds() {
         },
         mode: 'no-cors',
         body: JSON.stringify({
-            identifier: process.env.BSKY_EMAIL,
+            identifier: process.env.BSKY_HANDLE,
             password: process.env.BSKY_PASS,
         })
     })
