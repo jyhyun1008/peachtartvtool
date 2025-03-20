@@ -30,8 +30,8 @@ export default NextAuth({
       const json = (await getGroup.json())
       const knownAs = json.rows[0].knownas
       const group = json.rows[0].group
-      const pid = json.rows[0].pid
-      session.user.pid = pid
+      const uid = json.rows[0].uid
+      session.user.uid = uid
       session.user.group = group
       session.user.knownAs = knownAs
       //session.user = token
