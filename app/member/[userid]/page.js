@@ -3,10 +3,15 @@ import BskyFeedsByUser from "@/components/BskyFeedsByUser";
 import Chzzk from "@/components/Chzzk";
 import MarkedParser from "@/components/MarkedParser";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function Home({params}) {
 
     const userid = (await params).userid
+
+    if (parseInt(userid) != userid) {
+        redirect('/')
+    }
 
     const getUser = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/getUserById', {
         method: 'POST',
@@ -18,7 +23,12 @@ export default async function Home({params}) {
         })
     })
     const json = await getUser.json()
-    let user = json.rows[0]
+    let user
+    if (json.rows.length == 1 && json.rows[0].group == 'member') {
+        user = json.rows[0]
+    } else {
+        redirect('/')
+    }
 
     // const user = {
     //     pid: 1,
@@ -67,7 +77,7 @@ export default async function Home({params}) {
             <h1 className="h1-nickname">{user.knownas}</h1>
             <div>@{user.handle}</div>
             <div style={{height: '1rem'}}></div>
-            <MarkedParser raw={user.bio} align='center' />
+            <MarkedParser raw={user.bio.replace(/\n/gm, '\n\n')} align='center' />
             </div>
             <div className="artistMenu">
             <Link href={`/member/${userid}`}><div style={circle}><p>홈</p></div></Link>

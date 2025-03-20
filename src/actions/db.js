@@ -35,6 +35,21 @@ export const addUserByForm = async (user) => {
     return data;
 };
 
+export const updateUser = async (user) => {
+    const data = await db.update(users)
+                        .set({
+                            handle: user.handle, //bsky를 fetch해서 chzzk의 핸들대로.
+                            bskyhandle: user.bskyHandle,
+                            accentcolor: user.accentColor,
+                            avatarlong: user.avatarLong,
+                            bio: user.bio,
+                            biolong: user.bioLong,
+                            links: user.links,
+                        })
+                        .where(eq(users.email, user.email))
+    return data;
+};
+
 export const addUserGiveUp = async (user)=> {
     const data = await db.delete(users).where(eq(users.email, user.email))
     return data
