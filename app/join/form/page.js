@@ -15,8 +15,9 @@ export default function Home() {
     useEffect(() => {
       async function fetchData(){
   
+        session.current = await getSession()
         console.log(session.current)
-        if (!session.current || session.current.user.group != 'guest') {
+        if (!session.current.user || session.current.user.group != 'guest') {
           router.push('/')
         }
       }
