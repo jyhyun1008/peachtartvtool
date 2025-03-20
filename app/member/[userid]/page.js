@@ -4,6 +4,7 @@ import Chzzk from "@/components/Chzzk";
 import MarkedParser from "@/components/MarkedParser";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+export const dynamic = 'force-dynamic';
 
 export default async function Home({params}) {
 
