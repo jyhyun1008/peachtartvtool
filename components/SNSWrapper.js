@@ -21,7 +21,7 @@ export default function SNSWrapper({feeds}) {
                     ?<></>
                     :<hr style={{background:'#cccccc', height:1, border:0, width: '100%'}}/>
                 }
-                <Feed raw={feed.text} handle={feed.user.handle} knownAs={feed.user.knownAs} avatar={feed.user.avatar} date={feed.date} url={feed.url} />
+                <Feed raw={feed.text} handle={feed.user.handle} knownAs={feed.user.knownAs} avatar={feed.user.avatar} date={feed.date} url={feed.url} images={feed.images} />
                 </div>
             ))}
         </div>
