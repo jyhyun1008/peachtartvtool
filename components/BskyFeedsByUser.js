@@ -32,7 +32,10 @@ export default async function BskyFeedsByUser({bskyHandle}) {
         },
         text: eachfeed.post.record.text,
         date: eachfeed.post.record.createdAt.split('.')[0],
-        url: `https://bsky.app/profile/${eachfeed.post.author.handle}/post/${eachfeed.post.uri.split('feed.post/')[1]}`
+        url: `https://bsky.app/profile/${eachfeed.post.author.handle}/post/${eachfeed.post.uri.split('feed.post/')[1]}`,
+        images: eachfeed.post.record.embed?.images.map(img => ({
+            link: `https://cdn.bsky.app/img/feed_fullsize/plain/${eachfeed.post.author.did}/${img.image.ref['$link']}`
+        }))
     }))
 
     //   console.log(data)
