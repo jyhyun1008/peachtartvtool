@@ -3,7 +3,7 @@ import MarkedParser from "@/components/MarkedParser";
 import DateTime from "./DateTime";
 import Link from "next/link";
 
-export default function Feed({date, handle, knownAs, avatar, raw, url}) {
+export default function Feed({date, handle, knownAs, avatar, raw, url, images=[]}) {
 
     const snsFeed = {
         display: 'flex',
@@ -27,6 +27,11 @@ export default function Feed({date, handle, knownAs, avatar, raw, url}) {
                     <p><b>{knownAs}</b></p>
                     <p style={{fontSize: '0.8rem'}}>@{handle}</p>
                     <MarkedParser raw={rawWithLink} />
+                    <div style={{overflowX: 'auto', display: 'flex'}}>
+                    {images.map((img, ind)=> (
+                        <img style={{width: 150, height: 150, objectFit: 'cover', borderRadius: 20, objectPosition: 'center'}} key={`img${ind}`} src={img.link} />
+                    ))}
+                    </div>
                     <p style={{fontSize: '0.8rem'}}><DateTime iso={date} /></p>
                 </div>
             </div>
