@@ -22,6 +22,7 @@ export default async function handler(req, res) {
                 handle: params.bskyHandle.split('.')[0],
                 chzzkId: chzzkId,
                 avatar: avatar,
+                bioLong: params.bioLong,
                 uid: params.uid
             })
     

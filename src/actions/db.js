@@ -28,7 +28,7 @@ export const addUserByForm = async (user) => {
                             accentcolor: '#ff4971',
                             avatarlong: '',
                             bio: '',
-                            biolong: '',
+                            biolong: user.bioLong,
                             links: '[]',
                             group: 'pending',
                         })

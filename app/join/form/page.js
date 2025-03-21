@@ -27,6 +27,7 @@ export default function Home() {
 
   const [chzzkId, setChzzkId] = useState('')
   const [bskyHandle, setBskyHandle] = useState('')
+  const [act, setAct] = useState('')
 
   function updateChzzkId(e) {
     if (e.target.value.split('chzzk.naver.com/').length == 2) {
@@ -44,9 +45,13 @@ export default function Home() {
     }
   }
 
+  function updateAct(e) {
+    setAct(e.target.value)
+  }
+
   const submit = () => {
 
-    if (chzzkId != '' && bskyHandle != '' && session.current.user.accessToken) {
+    if (chzzkId != '' && bskyHandle != '' && act != '' && session.current.user.accessToken) {
       //chzzk
       var token = session.current.user.accessToken
       console.log(token)
@@ -59,6 +64,7 @@ export default function Home() {
         body: JSON.stringify({
           chzzkId: chzzkId,
           bskyHandle: bskyHandle,
+          bioLong: act,
           uid: session.current.user.uid,
           token: token,
         })
@@ -77,12 +83,16 @@ export default function Home() {
           <h1>가입 신청 완료하기</h1>
           <div>계속하기 위해서 다음 정보를 작성해주세요.</div>
           <div>
-            <p>치지직 주소</p>
+            <p>치지직 주소:</p>
             <input id="chzzkId" onInput={updateChzzkId} />
           </div>
           <div>
-            <p>블루스카이 핸들</p>
+            <p>블루스카이 핸들:</p>
             <input id="bskyHandle" onInput={updateHandle} />
+          </div>
+          <div>
+            <p>음악 관련 활동 내역 또는 활동 계획:</p>
+            <textarea id="act" onInput={updateAct} ></textarea>
           </div>
           <div className="button" style={{color: 'var(--accent)'}} onClick={()=>submit()}>제출하기</div>
         </div>
