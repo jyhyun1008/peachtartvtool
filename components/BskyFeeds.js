@@ -15,7 +15,7 @@ export default async function BskyFeeds() {
     })
     const result = await login.json()
 
-    const data = await fetch(`https://bsky.social/xrpc/app.bsky.feed.getListFeed?list=at://did:plc:y6rdmkdbzzy3nh3xrfcucjlm/app.bsky.graph.list/3lkp3t2zila25&limit=20`, {
+    const data = await fetch(`https://bsky.social/xrpc/app.bsky.feed.getListFeed?list=at://did:plc:y6rdmkdbzzy3nh3xrfcucjlm/app.bsky.graph.list/3lkp3t2zila25&limit=10`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -33,9 +33,9 @@ export default async function BskyFeeds() {
         text: eachfeed.post.record.text,
         date: eachfeed.post.record.createdAt.split('.')[0],
         url: `https://bsky.app/profile/${eachfeed.post.author.handle}/post/${eachfeed.post.uri.split('feed.post/')[1]}`,
-        images: eachfeed.post.record.embed?.images.map(img => ({
+        images: eachfeed.post.record.embed?eachfeed.post.record.embed.images?.map(img => ({
             link: `https://cdn.bsky.app/img/feed_fullsize/plain/${eachfeed.post.author.did}/${img.image.ref['$link']}`
-        }))
+        })):[]
     }))
 
   //const letsgo = fetch(`/api/proxy?url=${encodeURIComponent('https://x.com/However_Ina/status/1899406975055933862')}`)

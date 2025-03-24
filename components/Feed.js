@@ -20,12 +20,14 @@ export default function Feed({date, handle, knownAs, avatar, raw, url, images=[]
     const rawWithLink = raw.replace(/(?:^|\s)https\:\/\/([^\s]+)/gm, ' [https://$1](https://$1)').replace(/(?:^|\s)http\:\/\/([^\s]+)/gm, ' [http://$1](https://$1)').replace(/\n/gm, '\n\n')
 
     return (
-        <Link href={url} style={{color: 'var(--foreground)'}}>
+        
             <div style={snsFeed}>
                 <img src={avatar} style={profileImgStyle} />
                 <div>
-                    <p><b>{knownAs}</b></p>
-                    <p style={{fontSize: '0.8rem'}}>@{handle}</p>
+                    <Link href={url} style={{color: 'var(--foreground)'}}>
+                        <p><b>{knownAs}</b></p>
+                        <p style={{fontSize: '0.8rem'}}>@{handle}</p>
+                    </Link>
                     <MarkedParser raw={rawWithLink} />
                     <div style={{overflowX: 'auto', display: 'flex'}}>
                     {images.map((img, ind)=> (
@@ -35,6 +37,5 @@ export default function Feed({date, handle, knownAs, avatar, raw, url, images=[]
                     <p style={{fontSize: '0.8rem'}}><DateTime iso={date} /></p>
                 </div>
             </div>
-        </Link>
     )
 }
