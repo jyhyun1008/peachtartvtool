@@ -38,10 +38,44 @@ export default async function BskyFeeds() {
         })):[]
     }))
 
+    const xtest = await fetch(`https://rss.app/feeds/v1.1/_oTQk9SttBu4hJuvB.json`)
+    const xresult = await xtest.json()
+    console.log(xresult)
   //const letsgo = fetch(`/api/proxy?url=${encodeURIComponent('https://x.com/However_Ina/status/1899406975055933862')}`)
   //const letsgo = fetch(`/api/proxy?url=${encodeURIComponent('https://api.fxtwitter.com/however_ina')}`)
 
+
+  const feeds2 = await Promise.all(xresult?.items.map(async eachfeed => {
+    
+    let user = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/getUserByHandle`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+        },
+        mode: 'no-cors',
+        body: JSON.stringify({
+            handle: eachfeed['dc:creator'].split('@')[1].toLowerCase()
+        })
+    })
+    let rows = await user.json()
+    let userinfo = rows.rows[0]
+
+    return {
+        user: {
+            handle: userinfo.handle,
+            knownAs: userinfo.knownas,
+            avatar: userinfo.avatar,
+        },
+        text: eachfeed.description,
+        date: new Date(eachfeed.pubDate).toISOString(),
+        url: eachfeed.link,
+        images: []
+    }
+    }))
+
+    console.log(feeds2)
+
   return (
-    <SNSWrapper feeds={feeds} />
+    <SNSWrapper feeds={feeds2} />
   );
 }

@@ -15,6 +15,7 @@ export const users = pgTable('users', {
     links: text(),
     chzzkid: varchar({length:100}),
     bskyhandle: varchar({length:100}),
+    xrss: varchar({length: 255}),
     createdat: timestamp().notNull(),
     lastlogin: timestamp(),
 })

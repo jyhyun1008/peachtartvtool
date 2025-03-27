@@ -75,7 +75,7 @@ export default async function Home({params}) {
             <h1 style={{paddingBottom: '0.3em'}}>진행 중인 라이브 <span>&gt;</span></h1>
             <Chzzk channel={user} isProfile={true} />
             <h1 className="h1" >최신 피드 <span>&gt;</span></h1>
-            <BskyFeedsByUser bskyHandle={user.bskyhandle}/>
+            <BskyFeedsByUser xrss={user.xrss}/>
             </div>
         </div>
         </div>
