@@ -130,7 +130,7 @@ export default function Home() {
             'authorization': token,
         },
         body: JSON.stringify({
-          handle: bskyHandle.split('.')[0],
+          handle: bskyHandle,
           bskyHandle: bskyHandle,
           accentColor: accentColor?accentColor:'#FF4971',
           avatarLong: avatarLong,
@@ -162,7 +162,7 @@ export default function Home() {
             </div>
             <div>프로필 사진은 재 로그인 시 치지직 기준으로 변경됩니다.</div>
             <hr />
-            <h2>블루스카이 핸들 변경</h2>
+            <h2>트위터 핸들 변경</h2>
             <input id="bskyHandle" onChange={changeBskyHandle} value={bskyHandle} placeholder="@example.bsky.social"/>
             <hr />
             <h2>이미지 컬러(Hex값)</h2>

@@ -19,7 +19,7 @@ export default async function handler(req, res) {
             let result = await addUserByForm({
                 knownAs: knownAs,
                 bskyHandle: params.bskyHandle,
-                handle: params.bskyHandle.split('.')[0],
+                handle: params.bskyHandle,
                 chzzkId: chzzkId,
                 avatar: avatar,
                 bioLong: params.bioLong,

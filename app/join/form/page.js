@@ -87,7 +87,7 @@ export default function Home() {
             <input id="chzzkId" onInput={updateChzzkId} />
           </div>
           <div>
-            <p>블루스카이 핸들:</p>
+            <p>트위터(현 X) 핸들:</p>
             <input id="bskyHandle" onInput={updateHandle} />
           </div>
           <div>
