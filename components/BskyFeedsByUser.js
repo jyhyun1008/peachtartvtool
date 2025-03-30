@@ -54,7 +54,7 @@ export default async function BskyFeedsByUser({xrss}) {
         },
         mode: 'no-cors',
         body: JSON.stringify({
-            handle: eachfeed['dc:creator'].split('@')[1].toLowerCase()
+            handle: eachfeed.authors[0].name.split('@')[1].toLowerCase()
         })
     })
     let rows = await user.json()
@@ -66,9 +66,9 @@ export default async function BskyFeedsByUser({xrss}) {
             knownAs: userinfo.knownas,
             avatar: userinfo.avatar,
         },
-        text: eachfeed.description,
-        date: new Date(eachfeed.pubDate).toISOString(),
-        url: eachfeed.link,
+        text: eachfeed['content_text'],
+        date: new Date(eachfeed['date_published']).toISOString(),
+        url: eachfeed.url,
         images: []
     }
     }))
